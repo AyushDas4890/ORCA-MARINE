@@ -101,3 +101,35 @@ Real WDPA/INCOIS integration if API access is obtained later. SIH team roster �
 - Team — SIH 2026 rules stated (6 members, 1+ woman, SPOC-cleared), 6 empty seat placeholders. Roster intentionally left blank rather than invented — not finalized yet.
 
 Single-file `frontend/index.html`, same design system throughout (Inter, `#5E0ED7` accent, uppercase tracked labels, clamp()-based responsive type).
+
+## Frontend rewrite: React + Framer Motion + taste-skill-v1 (done)
+
+The static `frontend/index.html` above is superseded. The live frontend is now a real React app (Vite + Tailwind CSS v4 + Framer Motion), built to remove CSS-approximated motion in favor of actual spring physics, and to apply the `taste-skill-v1` design skill on top.
+
+**Explicit scope, agreed with the user before starting** (this was a dependency + architecture change, flagged and confirmed first):
+- Full rewrite to React + Framer Motion approved.
+- The hero's 3D chrome-ring video is preserved byte-for-byte — same re-encoded `hero-video.mp4`/`poster.jpg`, just served from `frontend/public/assets/video/` instead of `frontend/assets/video/`.
+- taste-skill-v1 explicitly approved to override the original visual identity: purple `#5E0ED7` and Inter are gone. New palette is near-black ink (`#0a0a0c`, never pure `#000`) with a single desaturated accent (`#2f5fe0`, Electric Blue) on a white base; font is Outfit (Google Fonts), not Inter.
+
+**Structure:**
+- `frontend/` is now a normal Vite project: `package.json`, `vite.config.js` (`@vitejs/plugin-react` + `@tailwindcss/vite`), `index.html`, `src/index.css` (Tailwind v4 `@theme` tokens), `src/main.jsx`, `src/App.jsx`, `src/components/{Nav,Hero,Mission,Demo,Agents,Platform,Team}.jsx`.
+- The old static site moved intact to `frontend/legacy-static/` (kept as a backup, not deleted).
+- `Demo.jsx` is the same live "Ask ORCA" tool as before, now as a proper React component: `fetch('http://localhost:8000/query')`, sample-query buttons, evidence list, and a report link — functionally identical to the static version's JS, no backend changes needed.
+- Agents section was redesigned from a plain grid into a divided list (taste-skill bans the generic "3 equal cards" layout) — same 8 agents, same accurate live/mock/mixed status per agent.
+- Every section uses `whileInView` + `staggerChildren` reveals and spring transitions (`type: 'spring', stiffness: 100-140, damping: 16-20`) instead of linear CSS easing; hero uses `min-h-[100dvh]`, not `h-screen`, per taste-skill's mobile-viewport-jump rule.
+- Dropped `oxlint` from `devDependencies` — it isn't needed (no lint step wired into `npm run build`) and its dependency tree of dozens of platform-specific optional binaries made `npm install` take 170s+ before timing out; removing it brought fresh installs down to 2-5s.
+
+**Verification note (read before assuming it "just works"):** this was built and synced from a sandboxed device shell with no way to open a browser against a live dev server, so verification here was `npm run build` succeeding, `npm run preview` + `curl` HTTP-level checks (correct 200s and byte sizes for the HTML/JS/CSS/video), and grepping the built JS bundle for expected content strings — not a visual look at the rendered page. Run it yourself to confirm the design reads the way it's supposed to:
+```
+cd frontend
+npm install
+npm run dev
+```
+
+**Known leftovers on disk, not cleaned up (delete is blocked in this sandbox without an explicit permission grant):**
+- `frontend/src/App.css`, `frontend/src/assets/{hero.png,react.svg,vite.svg}` — Vite's default scaffold files, unused (nothing imports them).
+- `frontend/.oxlintrc.json` — irrelevant now that oxlint was dropped.
+- `frontend/_react_src_tmp/` — scratch staging folder used to sync source files onto this machine; safe to delete.
+- `frontend/node_modules/` at the project root (~109MB) — a partial install (45 packages) from an earlier attempt directly on this machine, before the build was moved to a faster location for speed. It's already gitignored either way; running `npm install` will just complete/replace it.
+
+None of these are wired into the build or referenced anywhere, so they're inert — just clutter worth deleting by hand when convenient.
