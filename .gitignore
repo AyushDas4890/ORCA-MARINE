@@ -6,3 +6,5 @@ reports/**/*.html
 Claude outputs/
 ORCA Marine Hero.html
 frontend/_demo_section_tmp.html
+
+.vercel
