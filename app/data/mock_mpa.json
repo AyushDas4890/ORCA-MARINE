@@ -1,0 +1,9 @@
+{
+  "source": "mock_mpa.json — curated from public knowledge of major Indian Marine Protected Areas, simplified as point+radius circles. Real polygon shapefiles live in WDPA/Protected Planet, which requires a free but registration-gated API token (api.protectedplanet.net returned 401 without one) — full shapefile intersection is a follow-up, not done yet.",
+  "generated_at": "2026-09-06T06:00:00Z",
+  "areas": [
+    {"name": "Gulf of Mannar Marine National Park", "lat": 9.17, "lon": 79.25, "radius_km": 20},
+    {"name": "Gulf of Kutch Marine National Park", "lat": 22.45, "lon": 69.10, "radius_km": 30},
+    {"name": "Malvan (Sindhudurg) Marine Sanctuary", "lat": 16.05, "lon": 73.46, "radius_km": 15}
+  ]
+}

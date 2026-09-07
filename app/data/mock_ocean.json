@@ -1,0 +1,30 @@
+{
+  "source": "mock_ocean.json (placeholder — real INCOIS PFZ advisory has no clean public API, only per-district PDF bulletins; scraping/parsing is a separate task, not done yet)",
+  "generated_at": "2026-09-06T06:00:00Z",
+  "locations": {
+    "chennai": {
+      "display_name": "Chennai coast, Tamil Nadu",
+      "nearest_pfz_km": 22,
+      "pfz_bearing": "SE",
+      "chlorophyll_mg_m3": 1.8,
+      "sst_c": 29.1,
+      "favourable": true
+    },
+    "kochi": {
+      "display_name": "Kochi coast, Kerala",
+      "nearest_pfz_km": 41,
+      "pfz_bearing": "W",
+      "chlorophyll_mg_m3": 0.6,
+      "sst_c": 30.4,
+      "favourable": false
+    },
+    "visakhapatnam": {
+      "display_name": "Visakhapatnam coast, Andhra Pradesh",
+      "nearest_pfz_km": 15,
+      "pfz_bearing": "SE",
+      "chlorophyll_mg_m3": 2.3,
+      "sst_c": 28.7,
+      "favourable": true
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "source": "mock_weather.json (simulated IMD/OpenWeatherMap feed, placeholder for real API)",
+  "generated_at": "2026-09-06T06:00:00Z",
+  "locations": {
+    "chennai": {
+      "display_name": "Chennai coast, Tamil Nadu",
+      "temp_c": 30.5,
+      "wind_kmph": 18,
+      "wave_height_m": 1.2,
+      "conditions": "partly cloudy, moderate sea",
+      "safe_to_venture": true
+    },
+    "kochi": {
+      "display_name": "Kochi coast, Kerala",
+      "temp_c": 28.0,
+      "wind_kmph": 42,
+      "wave_height_m": 2.8,
+      "conditions": "squally winds, rough sea, small craft advisory",
+      "safe_to_venture": false
+    },
+    "visakhapatnam": {
+      "display_name": "Visakhapatnam coast, Andhra Pradesh",
+      "temp_c": 31.2,
+      "wind_kmph": 14,
+      "wave_height_m": 0.9,
+      "conditions": "clear, calm sea",
+      "safe_to_venture": true
+    }
+  }
+}
