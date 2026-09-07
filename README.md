@@ -70,8 +70,21 @@ Testing got easier as a side effect: fallback/unavailable scenarios are now test
 - 6 new tests (dependency-injection style, consistent with the rest of the suite) — full suite is 28/28 passing, not just the new ones.
 - All 8 agents from the original roster now exist: Controller, Weather, Ocean Analytics, Geospatial, Data Discovery, Memory/Session, Reporting, Risk Assessment.
 
+**Frontend <-> backend wired (done):** the site is no longer a static mockup next to a working API — they actually talk to each other.
+- `app/main.py`: added CORS (wildcard — a hackathon demo with a file:// frontend and no user credentials, not a production default to carry forward) and a `/reports` static mount so the browser can open a generated report directly instead of needing filesystem access.
+- `frontend/index.html`: new **Try It / Ask ORCA** section (`#demo`) — real text input, 4 sample queries, calls `POST /query` on `localhost:8000`, renders the grounded/not-grounded badge, intent, answer, full evidence list, and a link to the generated map report. Clear inline error if the backend isn't running (most likely failure mode for a judge trying this cold). The "Explore ORCA" CTAs (hero + mobile menu) now point here instead of to the static Platform section.
+- Verified live, not just asserted: started uvicorn, hit `/query` and the CORS preflight over curl, confirmed the JSON response and report generation for real; extracted the page's own `<script>` block and ran it through `node --check` for a syntax sanity pass. Full test suite re-run after all of this: still 28/28.
+- Added `pytest.ini` (`testpaths = tests`) — a stray scratch file outside `tests/` was being auto-collected by pytest's default discovery and threw 6 spurious failures; this scopes collection properly instead of relying on nothing else ending up named `test_*.py`.
+
+## Run the full demo
+```
+pip install -r requirements.txt
+uvicorn app.main:app --reload
+```
+Then open `frontend/index.html` in a browser and use the **Ask ORCA** section — it talks to the backend at `localhost:8000`.
+
 ## Next
-Backend roster complete. Open items: real WDPA/INCOIS integration if API access is obtained later; FastAPI/Streamlit demo layer; SIH team roster (still solo as of now — 6-member/1-woman/SPOC rule not yet satisfied, see project docs).
+Real WDPA/INCOIS integration if API access is obtained later. SIH team roster — still solo as of now, 6-member/1-woman/SPOC rule not yet satisfied (see project docs).
 
 ## Frontend
 

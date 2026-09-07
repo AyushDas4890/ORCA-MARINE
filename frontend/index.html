@@ -105,7 +105,7 @@ REGIONS</div>
   <div style="position: relative; z-index: 10; padding: 0 clamp(20px, 5vw, 48px) clamp(32px, 5vw, 48px); display: flex; flex-direction: column; gap: clamp(24px, 5vw, 48px);">
     <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px;">
       <p class="orca-anim" style="opacity: 0; animation: orcaFadeUp 0.6s cubic-bezier(0.22,1,0.36,1) 0.6s forwards; margin: 0; font-size: clamp(10px, 1.2vw, 14px); font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; line-height: 1.4; max-width: clamp(130px, 20vw, 260px);">Charting Safe<br>Waters Through<br>Agentic AI</p>
-      <a href="#platform" class="orca-anim orca-nav-link" style="opacity: 0; animation: orcaFadeUp 0.6s cubic-bezier(0.22,1,0.36,1) 0.72s forwards; display: inline-flex; align-items: center; gap: 8px; font-size: clamp(1rem, 2.4vw, 1.5rem); font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #5E0ED7; white-space: nowrap;">Explore ORCA
+      <a href="#demo" class="orca-anim orca-nav-link" style="opacity: 0; animation: orcaFadeUp 0.6s cubic-bezier(0.22,1,0.36,1) 0.72s forwards; display: inline-flex; align-items: center; gap: 8px; font-size: clamp(1rem, 2.4vw, 1.5rem); font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #5E0ED7; white-space: nowrap;">Explore ORCA
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0;"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
       </a>
     </div>
@@ -134,7 +134,7 @@ REGIONS</div>
       <a href="#platform" class="orca-nav-link orca-menu-link" style="font-size: 1.875rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #000;">Platform</a>
       <a href="#team" class="orca-nav-link orca-menu-link" style="font-size: 1.875rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #000;">Team</a>
     </div>
-    <a href="#platform" class="orca-nav-link orca-menu-link" style="margin-top: auto; display: inline-flex; align-items: center; gap: 8px; font-size: 1.25rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #5E0ED7;">Explore ORCA
+    <a href="#demo" class="orca-nav-link orca-menu-link" style="margin-top: auto; display: inline-flex; align-items: center; gap: 8px; font-size: 1.25rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #5E0ED7;">Explore ORCA
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
     </a>
   </div>
@@ -168,6 +168,40 @@ REGIONS</div>
         Every answer carries evidence — source and timestamp. If nothing can be grounded, ORCA refuses to answer. It never guesses a forecast, and it never guesses a maritime boundary.
       </p>
     </div>
+
+  </div>
+</section>
+
+<section id="demo" style="position: relative; padding: clamp(64px, 10vw, 160px) clamp(20px, 5vw, 48px); font-family: 'Inter', sans-serif; color: #000; background: #fff;">
+  <div style="display: flex; flex-direction: column; gap: clamp(28px, 5vw, 48px); max-width: 900px; margin: 0 auto;">
+
+    <div style="display: flex; align-items: center; gap: 12px;">
+      <div style="width: 8px; height: 8px; border-radius: 999px; background: #5E0ED7; flex-shrink: 0;"></div>
+      <p style="margin: 0; font-size: clamp(10px, 1.2vw, 14px); font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #5E0ED7;">Try It</p>
+    </div>
+
+    <h2 style="margin: 0; font-size: clamp(1.75rem, 5vw, 3.5rem); line-height: 1; font-weight: 600; text-transform: uppercase;">Ask ORCA</h2>
+
+    <p style="margin: 0; font-size: clamp(0.95rem, 1.3vw, 1.1rem); line-height: 1.55; color: #555;">
+      Ask about weather, fishing zones, maritime boundaries, or overall risk near Chennai, Kochi, or Visakhapatnam. This calls the real backend &mdash; it needs to be running locally first (<code style="background:#f2f2f2; padding:2px 6px; border-radius:4px;">uvicorn app.main:app --reload</code>) on <code style="background:#f2f2f2; padding:2px 6px; border-radius:4px;">localhost:8000</code>.
+    </p>
+
+    <form id="orca-demo-form" style="display: flex; gap: 12px; flex-wrap: wrap;">
+      <input id="orca-demo-input" type="text" placeholder="e.g. Is it safe to venture near Chennai tomorrow?" autocomplete="off"
+        style="flex: 1 1 320px; padding: 16px 20px; font-family: 'Inter', sans-serif; font-size: 1rem; border: 2px solid #000; border-radius: 999px; outline: none;">
+      <button type="submit" id="orca-demo-submit" class="orca-icon-btn"
+        style="padding: 16px 32px; font-family: 'Inter', sans-serif; font-size: 0.9rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #fff; background: #000; border: 0; border-radius: 999px; cursor: pointer;">Ask</button>
+    </form>
+
+    <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+      <button type="button" class="orca-demo-sample orca-icon-btn" data-q="Is it safe to venture near Chennai tomorrow?" style="padding: 8px 16px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.04em; color: #5E0ED7; background: #f5f0ff; border: 0; border-radius: 999px; cursor: pointer;">Safe near Chennai?</button>
+      <button type="button" class="orca-demo-sample orca-icon-btn" data-q="What's the risk level near Kochi?" style="padding: 8px 16px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.04em; color: #5E0ED7; background: #f5f0ff; border: 0; border-radius: 999px; cursor: pointer;">Risk near Kochi?</button>
+      <button type="button" class="orca-demo-sample orca-icon-btn" data-q="Where is the nearest fishing zone near Visakhapatnam?" style="padding: 8px 16px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.04em; color: #5E0ED7; background: #f5f0ff; border: 0; border-radius: 999px; cursor: pointer;">Fishing zone near Vizag?</button>
+      <button type="button" class="orca-demo-sample orca-icon-btn" data-q="Is there a restricted zone near Chennai?" style="padding: 8px 16px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.04em; color: #5E0ED7; background: #f5f0ff; border: 0; border-radius: 999px; cursor: pointer;">Restricted zone check?</button>
+    </div>
+
+    <div id="orca-demo-result" style="display: none; flex-direction: column; gap: 16px; padding: clamp(20px, 3vw, 32px); border: 2px solid #000; border-radius: 16px;"></div>
+    <div id="orca-demo-error" style="display: none; padding: 16px 20px; border-radius: 12px; background: #fdecea; color: #a12a1f; font-size: 0.9rem; line-height: 1.5;"></div>
 
   </div>
 </section>
@@ -354,6 +388,97 @@ function orcaVideoError(el) {
   // Escape closes — same exit path a user expects from any overlay (spatial consistency)
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape' && menu.classList.contains('is-open')) closeMenu();
+  });
+})();
+
+// --- Ask ORCA demo: calls the real backend (must be running locally) ---
+(function () {
+  var API_BASE = 'http://localhost:8000';
+
+  var form = document.getElementById('orca-demo-form');
+  var input = document.getElementById('orca-demo-input');
+  var submitBtn = document.getElementById('orca-demo-submit');
+  var resultBox = document.getElementById('orca-demo-result');
+  var errorBox = document.getElementById('orca-demo-error');
+  var sessionId = (window.crypto && crypto.randomUUID) ? crypto.randomUUID() : String(Date.now());
+
+  function escapeHtml(s) {
+    var d = document.createElement('div');
+    d.textContent = s;
+    return d.innerHTML;
+  }
+
+  function renderResult(data) {
+    errorBox.style.display = 'none';
+    var groundedColor = data.grounded ? '#1a7f37' : '#a12a1f';
+    var groundedLabel = data.grounded ? 'GROUNDED' : 'NOT GROUNDED';
+
+    var evidenceHtml = (data.evidence || []).map(function (ev) {
+      return '<div style="padding: 10px 14px; background: #f7f7f7; border-radius: 8px; font-size: 0.82rem; line-height: 1.4;">' +
+        '<div style="font-weight: 600;">' + escapeHtml(ev.source) + '</div>' +
+        '<div style="color: #777;">' + escapeHtml(ev.timestamp) + (ev.note ? ' &mdash; ' + escapeHtml(ev.note) : '') + '</div>' +
+        '</div>';
+    }).join('');
+
+    var reportLink = '';
+    if (data.report_path) {
+      var filename = data.report_path.split(/[\\/]/).pop();
+      reportLink = '<a href="' + API_BASE + '/reports/' + encodeURIComponent(filename) + '" target="_blank" rel="noopener" ' +
+        'style="align-self: flex-start; font-size: 0.85rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #5E0ED7;">Open Map Report &rarr;</a>';
+    }
+
+    resultBox.innerHTML =
+      '<div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">' +
+        '<span style="font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #fff; background: ' + groundedColor + '; padding: 4px 10px; border-radius: 999px;">' + groundedLabel + '</span>' +
+        '<span style="font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #555;">Intent: ' + escapeHtml(data.intent) + ' (' + escapeHtml(data.intent_source) + ')</span>' +
+      '</div>' +
+      '<p style="margin: 0; font-size: 1.05rem; line-height: 1.55; font-weight: 500;">' + escapeHtml(data.answer) + '</p>' +
+      (evidenceHtml ? '<div style="display: flex; flex-direction: column; gap: 8px;">' + evidenceHtml + '</div>' : '') +
+      reportLink;
+    resultBox.style.display = 'flex';
+  }
+
+  function renderError(message) {
+    resultBox.style.display = 'none';
+    errorBox.textContent = message;
+    errorBox.style.display = 'block';
+  }
+
+  function ask(text) {
+    if (!text || !text.trim()) return;
+    input.value = text;
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Asking...';
+
+    fetch(API_BASE + '/query', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ text: text, session_id: sessionId }),
+    })
+      .then(function (res) {
+        if (!res.ok) throw new Error('Backend responded with HTTP ' + res.status);
+        return res.json();
+      })
+      .then(renderResult)
+      .catch(function (err) {
+        renderError(
+          "Couldn't reach the ORCA backend at " + API_BASE + ". Start it first: " +
+          "uvicorn app.main:app --reload (from the project folder). (" + err.message + ")"
+        );
+      })
+      .finally(function () {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Ask';
+      });
+  }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    ask(input.value);
+  });
+
+  document.querySelectorAll('.orca-demo-sample').forEach(function (btn) {
+    btn.addEventListener('click', function () { ask(btn.dataset.q); });
   });
 })();
 </script>
