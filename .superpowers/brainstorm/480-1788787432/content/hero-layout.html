@@ -1,0 +1,43 @@
+<h2>How should the hero video be framed?</h2>
+<p class="subtitle">The video asset itself stays byte-for-byte unchanged — this is about how it sits in the Deep Current layout.</p>
+
+<div class="cards">
+  <div class="card" data-choice="full-bleed-veil" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#01050c;position:relative;overflow:hidden;">
+      <div style="position:absolute;inset:0;background:radial-gradient(circle at 50% 30%,rgba(0,229,255,0.18),transparent 65%);"></div>
+      <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;">
+        <div style="width:70%;height:60%;border:1px dashed rgba(0,229,255,0.5);border-radius:6px;display:flex;align-items:center;justify-content:center;color:rgba(0,229,255,0.6);font-family:monospace;font-size:11px;">video, full-bleed</div>
+      </div>
+      <div style="position:absolute;bottom:16px;left:16px;color:#e8fbff;font-size:18px;font-weight:600;">ORCA MARINE</div>
+    </div>
+    <div class="card-body">
+      <h3>A — Full-bleed with dark veil</h3>
+      <p>Video fills the entire viewport, a soft dark gradient veil sits over it so headline text stays legible. Closest to the current site — but with the cyan glow and asymmetric type overlay of Deep Current.</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="framed-panel" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#04131f;position:relative;display:flex;align-items:center;justify-content:flex-end;padding:20px;box-sizing:border-box;">
+      <div style="width:55%;height:75%;background:rgba(0,229,255,0.08);border:1px solid rgba(0,229,255,0.4);border-radius:8px;display:flex;align-items:center;justify-content:center;color:rgba(0,229,255,0.6);font-family:monospace;font-size:11px;box-shadow:0 0 40px rgba(0,229,255,0.15);">video, glass panel</div>
+      <div style="position:absolute;left:24px;top:50%;transform:translateY(-50%);color:#e8fbff;font-size:16px;max-width:35%;">Headline copy sits beside the video, not on top of it</div>
+    </div>
+    <div class="card-body">
+      <h3>B — Framed glass panel, split layout</h3>
+      <p>Video lives in its own glassmorphic panel on one side; headline + CTA sit in open space beside it. More editorial, less "video as wallpaper." Video reads as a deliberate object, echoing a sonar/viewport frame.</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="reveal-on-scroll" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#01050c;position:relative;overflow:hidden;">
+      <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:0.35;">
+        <div style="width:90%;height:90%;border:1px dashed rgba(0,229,255,0.4);border-radius:6px;"></div>
+      </div>
+      <div style="position:absolute;top:20px;left:20px;color:#e8fbff;font-size:20px;font-weight:600;">Headline first</div>
+      <div style="position:absolute;bottom:20px;right:20px;color:rgba(0,229,255,0.7);font-family:monospace;font-size:11px;">↓ video reveals on scroll</div>
+    </div>
+    <div class="card-body">
+      <h3>C — Type-first, video reveals on scroll</h3>
+      <p>Opens on bold typographic statement over a dark still frame; the video itself only starts playing full-bleed as the user scrolls past the first fold. Punchier opening, video becomes a payoff rather than instant wallpaper.</p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,50 @@
+<h2>How should the 8 agents be presented?</h2>
+<p class="subtitle">Same 8 agents, same accurate live/mock/mixed status per agent — just how it's laid out visually in Deep Current.</p>
+
+<div class="cards">
+  <div class="card" data-choice="sonar-console" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#01050c;position:relative;display:flex;align-items:center;justify-content:center;">
+      <div style="width:120px;height:120px;border-radius:50%;border:1px solid rgba(0,229,255,0.3);position:relative;">
+        <div style="position:absolute;inset:12px;border-radius:50%;border:1px solid rgba(0,229,255,0.2);"></div>
+        <div style="position:absolute;inset:24px;border-radius:50%;border:1px solid rgba(0,229,255,0.15);"></div>
+        <div style="position:absolute;width:6px;height:6px;background:#00e5ff;border-radius:50%;top:20px;left:60px;box-shadow:0 0 8px #00e5ff;"></div>
+        <div style="position:absolute;width:6px;height:6px;background:#7dffb0;border-radius:50%;top:70px;left:30px;box-shadow:0 0 8px #7dffb0;"></div>
+        <div style="position:absolute;width:6px;height:6px;background:#00e5ff;border-radius:50%;top:90px;left:85px;box-shadow:0 0 8px #00e5ff;"></div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>A — Sonar radar map</h3>
+      <p>8 agents plotted as blips on a radar/sonar circle, color-coded live (cyan) vs mock (amber/dim). Clicking a blip expands a detail panel. Most distinctive, but needs the labels/details to stay readable — riskier for a text-heavy status table.</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="data-console-rows" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#04131f;padding:16px;box-sizing:border-box;">
+      <div style="font-family:monospace;font-size:10px;color:rgba(0,229,255,0.5);border-bottom:1px solid rgba(0,229,255,0.15);padding-bottom:6px;margin-bottom:6px;">AGENT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;STATUS&nbsp;&nbsp;&nbsp;SOURCE</div>
+      <div style="font-family:monospace;font-size:10px;color:#e8fbff;line-height:2;">
+        WEATHER &nbsp;&nbsp;● LIVE &nbsp;&nbsp;Open-Meteo<br/>
+        OCEAN &nbsp;&nbsp;&nbsp;&nbsp;○ MOCK &nbsp;&nbsp;INCOIS gated<br/>
+        GEOSPATIAL &nbsp;● LIVE &nbsp;&nbsp;Marine Regions
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>B — Data-console rows</h3>
+      <p>Terminal-style row list, monospace, one row per agent — status dot + live/mock label + data source, expandable on click for the full description. Reads as a real instrument readout (fits the "field instrument" undertone within Deep Current). Very scannable.</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="depth-stack" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:linear-gradient(180deg,#01050c 0%,#062a3d 100%);position:relative;padding:12px;box-sizing:border-box;">
+      <div style="display:flex;flex-direction:column;gap:6px;">
+        <div style="height:14px;width:90%;background:rgba(0,229,255,0.15);border-left:2px solid #00e5ff;"></div>
+        <div style="height:14px;width:75%;background:rgba(125,255,176,0.12);border-left:2px solid #7dffb0;margin-left:20px;"></div>
+        <div style="height:14px;width:85%;background:rgba(0,229,255,0.15);border-left:2px solid #00e5ff;margin-left:40px;"></div>
+        <div style="height:14px;width:65%;background:rgba(125,255,176,0.12);border-left:2px solid #7dffb0;margin-left:60px;"></div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>C — Depth stack</h3>
+      <p>Agents listed as a descending staggered stack, each bar offset deeper (literal "diving deeper" metaphor), color = live/mock. Scroll-driven reveal as you go down the page. Strong visual metaphor tying back to the ocean theme, but the least conventional to scan quickly.</p>
+    </div>
+  </div>
+</div>
