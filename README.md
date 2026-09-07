@@ -11,9 +11,12 @@
   <img alt="FastAPI" src="https://img.shields.io/badge/FastAPI-009688?logo=fastapi&logoColor=white" />
   <img alt="React" src="https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=black" />
   <img alt="Vite" src="https://img.shields.io/badge/Vite-Tailwind%20v4-646CFF?logo=vite&logoColor=white" />
+  <img alt="Vercel" src="https://img.shields.io/badge/Vercel-Live-success?logo=vercel&logoColor=white" />
   <img alt="Tests" src="https://img.shields.io/badge/tests-28%2F28%20passing-2ECC71" />
   <img alt="Status" src="https://img.shields.io/badge/status-hackathon%20build-orange" />
 </p>
+
+**🌐 Live Demo:** [https://captone2-orcin.vercel.app](https://captone2-orcin.vercel.app)
 
 ---
 
