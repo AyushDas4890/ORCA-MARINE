@@ -1,9 +1,26 @@
 {
   "version": 2,
+  "buildCommand": "cd frontend && npm install && npm run build",
+  "outputDirectory": "frontend/dist",
   "rewrites": [
     {
-      "source": "/(.*)",
-      "destination": "/frontend/legacy-static/$1"
+      "source": "/query",
+      "destination": "https://$BACKEND_URL/query"
+    },
+    {
+      "source": "/health",
+      "destination": "https://$BACKEND_URL/health"
+    },
+    {
+      "source": "/reports/(.*)",
+      "destination": "https://$BACKEND_URL/reports/$1"
+    },
+    {
+      "source": "/((?!query|health|reports).*)",
+      "destination": "/index.html"
     }
-  ]
+  ],
+  "env": {
+    "VITE_API_URL": "@vite_api_url"
+  }
 }
